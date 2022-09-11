@@ -10,10 +10,13 @@ const scopes = [
   "user-read-playback-state",
   "user-top-read",
   "user-modify-playback-state",
+  //Below two scopes Added for two type of authorization needed for user
+  "playlist-read-collaborative",
+  "playlist-read-private",
 ];
 
 export const getTokenFromUrl = () => {
-  console.log(window.location);
+ 
   return window.location.hash
     .substring(1)
     .split("&")
