@@ -18,7 +18,7 @@ const Sidebar = () => {
       <br />
       <strong className='sidebar__title'>PLAYLISTS</strong>
       <hr />
-      {console.log("playList: " , playlists)}
+     
       {playlists?.items?.map((playlist,id) => {
           return <SidebarOption key={id} title={playlist.name} />
       })}

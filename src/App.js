@@ -28,16 +28,12 @@ function App() {
       
       //Get User
       spotify.getMe().then(user => {
-        console.log("user: " ,user)
+        
         dispatch({
           type:"SET_USER",
           user : user,
         })
       });
-
-      
-
-  
 
       //Get User's Playlists
       spotify.getUserPlaylists().then((playlists) => {
@@ -48,6 +44,26 @@ function App() {
         });
         
       });
+
+      spotify.getMyTopArtists().then((response) =>
+        dispatch({
+          type: "SET_TOP_ARTISTS",
+          top_artists: response,
+        })
+      );
+
+      dispatch({
+        type: "SET_SPOTIFY",
+        spotify: spotify,
+      });
+
+      //Get Discover weekly playlists
+      spotify.getPlaylist("6ehdSiG3d2TinBXr1r7ZK0").then(res => {
+        dispatch({
+          type:"SET_DISCOVER_WEEKLY",
+          discover_weekly: res,
+        })
+      })
 
     }
   }, []);

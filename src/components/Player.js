@@ -3,7 +3,7 @@ import Body from './Body'
 import Sidebar from './Sidebar'
 import "./Player.css"
 import Footer from './Footer'
-import { useStateValue } from './DataLayer'
+
 
 const Player = ({spotify}) => {
 
@@ -15,11 +15,11 @@ const Player = ({spotify}) => {
         {/* Sidebar */}
         <Sidebar />
         {/* Body */}
-        <Body />
+        <Body spotify={spotify}/>
         {/* Footer */}
         
      </div>
-     <Footer />
+     <Footer spotify={spotify}/>
     </div>
   )
 }
